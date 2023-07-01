@@ -1,0 +1,27 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "Complete web app using mern for an e-commerce website",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alphaviper7769/e-commerce.git"
+  },
+  "author": "Aayush Raturi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alphaviper7769/e-commerce/issues"
+  },
+  "homepage": "https://github.com/Alphaviper7769/e-commerce#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  }
+}
