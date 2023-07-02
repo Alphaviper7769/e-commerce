@@ -1,6 +1,7 @@
 import Product from "../models/product.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import asyncError from "./../middleware/catchAsyncError.js";
+import ApiFeatures from './../utils/features.js';
 
 export const test = (req, res) => {
   res.status(200).json({ message: "Route is working fine" });
@@ -18,11 +19,17 @@ export const createProduct = asyncError(async (req, res, next) => {
 
 //Get all Products
 export const GetAllProducts = asyncError(async (req, res, next) => {
-  const products = await Product.find();
+
+  const resultPerPage = 5;
+  const productCount = await Product.countDocuments()
+  
+  const apiFeature = new ApiFeatures(Product.find(),req.query).search().filter().pagination(resultPerPage)
+  const products = await apiFeature.query;
 
   res.status(200).json({
     success: true,
     products,
+    productCount
   });
 });
 
