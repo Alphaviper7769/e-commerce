@@ -7,11 +7,13 @@ app.use(express.json())
 
 //routes import
 import product from "./routes/productRoute.js"
+import user from "./models/user.js";
 
 
 
 
 app.use("/api/v1",product)
+app.use("/api/v1",user)
 
 
 
